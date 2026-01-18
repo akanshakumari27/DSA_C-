@@ -12,6 +12,8 @@
 #include<iostream>
 using namespace std;
 void explainPair(){
+
+    // ## Pair
     pair<int, int> p = {1, 3};
     cout<< p.first << " " << p.second;
 
@@ -20,9 +22,47 @@ void explainPair(){
 
     pair<int, int> arr[] = {{2,4}, {7,1}, {4,9}};
     cout<< arr[1].second;  //1
+
+    pair<int, string> p1 = {2, "Akansha"};
+    pair<int, bool> p2(3, true);
+
+    // ## make_pair
+    // Here u dont have to explicitly mention the data-type
+    auto p = make_pair(25, "Akansha");
+
+    // ## Swap
+    int a1 =5, a2= 10;
+    swap(a1, a2);  //values of variables will get swap!
+    cout<< a1<<" " <<a2;
+
+    // ## move
+    // this will move the value of variable 1 to variable 2 (leaving variable-1 value unspecified)
+    string s1 ="akansha";
+    string s2 = move(s1);
+
 }
+    // ## forward
+    // Assume there is a function with value (can be rvalue, lvalue, constant or any type)
+    // and we have to send the value from intial function to Final function, by passing through multiple functions without changing value's properties
+    // F1 -> F2 -> F3 -> F4 -> F5
+    
+    void process(int& x) {
+        cout << "Lvalue reference\n";
+    }
+
+    void process(int&& x) {
+        cout << "Rvalue reference\n";
+    }
+
+    template <typename T>
+    void wrapper(T&& arg) {
+        process(forward<T>(arg));
+    }
 
 int main(){
+    int a = 10;
+    wrapper(a);     
+    wrapper(20);
 
     return 0;
 }
