@@ -43,7 +43,7 @@ void explainPair(){
 }
     // ## forward
     // Assume there is a function with value (can be rvalue, lvalue, constant or any type)
-    // and we have to send the value from intial function to Final function, by passing through multiple functions without changing value's properties
+    // and we have to send the value from Intial function to Final function, by passing through multiple functions without changing value's properties
     // F1 -> F2 -> F3 -> F4 -> F5
     
     void process(int& x) {
