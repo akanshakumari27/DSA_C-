@@ -1,0 +1,827 @@
+-> What is the difference between C and C++?
+
+C is procedural programming langauge (Top-down approach, 👉 Big problem → divide into smaller parts → solve each)
+C++ is object oriented (bottom-up, 👉 Big problem → divide into smaller parts → solve each)
+c++ = c + object-oriented
+------------------------------------------------------------------------------------------------
+
+-> What are the different data types in C++?
+
+• Basic: int, char, float, double, bool
+• Derived: array, pointer, reference
+• User-defined: struct, class, enum, union
+-------------------------------------------------------------------------------------------------
+
+-> What is the difference between class and struct?
+
+Both are same, only difference
+class memebers are "Private" by default and struct memebers are "Public" by default
+in all Cases, while calling Constructors, derived classes.
+
+class className{
+    int a;  //private by Default
+};
+struct StructName{
+    int b;  //public be Default
+};
+------------------------------------------------------------------------------------------------
+
+-> What are pointers in C++?
+
+A pointer is a variable that stores the memory address of another variable.
+int x = 10;
+int* p = &x;  // Pointer storing the address of x
+cout<<*p;     // Dereferencing, output: 10
+
+// &x is address of x variable, and *p is pointing to that address (value stored in that address)
+---------------------------------------------------------------------------------------------------
+
+-> Diffrence between Refrencing and Derefrencing?
+
+Referencing (&): Referencing is getting the address of a variable.
+Dereferencing (*): Dereferencing is accessing the value stored at the address a pointer is pointing to.
+
+A pointer is a variable that stores the memory address of another variable. Declared using *
+    int a = 10;
+    int *p = &a; // Pointer
+    int &r = a;  // Reference
+
+    // Dereferencing pointer
+    cout << "Value of a using pointer: " << *p << endl;
+---------------------------------------------------------------------------------------------------------
+
+-> What is the difference between new and malloc()?
+
+Both are used for Dynamic Memeory Allocation (allocating memeory during runtime)
+
+new is from C++ operator, which alloactes memeory during run time
+new → initializes memory (can call constructors)
+new → calls constructor
+delete → calls destructor
+Use new in C++ (especially for objects).
+On failure: throws exception Does NOT return NULL (unless you use nothrow)
+
+malloc() → does NOT initialize memory (contains garbage)
+malloc() → does NOT call constructor
+free() → does NOT call destructor
+Use malloc() only when dealing with C-style code or special cases.
+On failure: returns NULL
+------------------------------------------------------------------------------------------------------
+
+-> What is a reference variable in C++?
+
+A reference variable is an alias for another variable. Here both variables points to same memeory address,
+So change in one variable brings the change in value of another variable also
+
+int a = 10;
+int &y = a; //y is refrence to a
+y = 20;
+cout<<a; //20
+------------------------------------------------------------------------------------------------------
+
+-> What is the difference between == and = in C++?
+• = Assignment Operator
+• == Comparison Operator
+-------------------------------------------------------------------------------------------------------
+
+-> What is the difference between function overloading and function overriding? Feature Overloading Overriding
+
+Function overloading: when multiple functions of same Name with different (number of Parameters OR data-type Parameters)
+is defined inside a Same/Singel Class then Function Overloading Occure, 
+here given object with given parameters decides, which function to use, according to (number/data-type parameters)
+{ Compile-time Polymorphism }
+
+// Both function of same Name but diffrent parameters
+class book{
+    void getBook(string x, int y){ return x; };  // 1
+    int getBook(int z){ return z*2  };           // 2
+};
+
+int main(){
+    book obj1;
+    cout<<obj1.getBook(5);  //as only int given therefor it will choose second function
+}
+
+Function Overriding: 
+When derived class also decalre same Function name, parameters and runtime(with diffrent value inside), which was already declared in base class
+{ Run-time Polymorphism (dynamic binding using virtual) } 
+
+class Base{
+    public:
+    virtual void func(){   // write "virtual" before function
+        cout<<"Base class";
+    }
+};
+class Derived: public base{
+    public:
+    void func() override{   //write "override" after function
+        cout<<"Derived class";
+    }
+}
+int main() {
+    Base* b = new Derived();
+    b->show(); // Derived class (runtime decision)
+}
+// If you dont write "override and virtual", it will return return //"Base class" as Output
+// Why virtual is used? 👉 Purpose: To enable runtime polymorphism (decide function at runtime, not compile time) Compiler waits until runtime
+// Why override is used?👉 Purpose: To ensure correctness (safety + readability)
+// override tells the compiler: 👉 “This function MUST override a base class function!”
+------------------------------------------------------------------------------------------------------------------------------------------
+
+-> What is the difference between ++i and i++?
+
+• ++i (Pre-increment): Increments first, then returns value.
+• i++ (Post-increment): Returns value first, then increments.
+---------------------------------------------------------------------------------------------------------
+
+-> What is a constructor in C++?
+
+A constructor is a special "member function" of a class that has the "same name" as the class, has "no return type" 
+and is automatically called when an object of the class is created
+
+class car{
+    public:
+    car(){
+        cout<<"My Carr";
+    }
+}
+car obj1;  //as instant object is created, constructor automatically called
+-------------------------------------------------------------------------------------------------------------
+
+-> What is a destructor in C++?
+
+A destructor is also a special member function inside a class, which has same name as Class preceded by ~,
+and has no return type, it automatically calls when object goes "Out Of Scope" or "Deleted"
+
+class myClass{
+    ~myClass(){
+        cout<<"Object deleted or went out of Scope";
+    }
+};
+int main(){
+    myClass obj1;  //constructor run
+}                  //destructor runs
+-------------------------------------------------------------------------------------------------------------
+
+-> What is the difference between public, private, and protected access specifiers?
+
+public: memebers accessible from anywhere (inside, outisde and derived class)
+private: memebers are not accessible from anywhere, only accessible (inside class)
+protected: members are accesible only (inside and derived class)
+
+Public members are accessible everywhere, private members only within the "class", and protected members within the "class" and its "derived classes"
+---------------------------------------------------------------------------------------------------------------
+
+-> What is dynamic memory allocation in C++?
+
+Allocating and deallocating memeory at runtime (during program execution) instead of compile time using operators like new and delete.
+🔸 1. Compile-Time: 👉 Happens before the program runs (during compilation)
+🔸 2. Run-Time: 👉 Happens while the program is running
+Example:
+int *p = new int(10); // Allocating memory
+delete p; // Freeing memory
+---------------------------------------------------------------------------------------------------------------
+
+-> What is an inline function?
+
+In a normal function call, arguments are pushed onto the stack and control is transferred to the function, which takes time.
+When a function is small and simple, it can be declared as inline. So here, function call is replaced by the actual function code, 
+which saves stack operations and execution time
+
+An inline function is a function in which the function call is replaced by its actual code to reduce function call overhead and improve performance
+
+inline int sum(int a, int b){
+    return a + b;
+}
+
+int main(){
+    sum(2, 3);   //it will directly replaced by 2 + 3; saving function call time
+}
+
+// What actually happens in Back-Ground when function is call
+The values you pass to the function are stored in memory (stack) {Arguments are pushed onto the stack}
+The program stores the location (address) where it should return after the function finishes
+Execution moves from the calling point to the function definition
+The function runs its code
+The result is returned to the calling location
+Arguments and local variables are removed from the stack {Stack is cleaned}
+
+Why this takes time
+All these steps involve:
+Stack operations
+Memory access
+Jumping between locations
+-----------------------------------------------------------------------------------------------------------------------------
+
+-> What is the difference between deep copy and shallow copy?
+
+In Shallow copy, it copies the memory address, therfore change in data in first variable also cause change in second variable
+whereas in Deep copy, it directly copies Actual data, therfore change in first variable doesnt cause change in Second Variable
+
+In shallow copy, addresses are copied, so both objects share the same memory and changes affect both.
+In deep copy, separate memory is allocated and actual data is copied, so changes do not affect other objects.
+
+Shallow Copy
+int main() {
+    int a = 5;
+    int *p1 = &a;
+    int *p2 = p1;  // shallow copy (just copies the address)
+
+    *p2 = 10;  // change via p2
+
+    cout << "a = " << a << endl;  // a is also changed
+    return 0;
+}
+
+Deep Copy
+int main() {
+    int a = 5;
+    int *p1 = new int(a);
+    int *p2 = new int(*p1);  // deep copy (copies actual value)
+
+    *p2 = 10;  // change p2
+
+    cout << "*p1 = " << *p1 << endl;  // p1 remains unchanged
+    cout << "*p2 = " << *p2 << endl;
+    
+    delete p1;
+    delete p2;
+    return 0;
+}
+----------------------------------------------------------------------------------------------------------------------
+
+-> What is the difference between const int* and int* const?
+
+const int* p → Pointer to a constant integer (can't change value).
+int* const p → Constant pointer (can't change address).
+-----------------------------------------------------------------------------------------------------------------------
+
+-> What is the this pointer?
+
+When "instant variable" and "local variable" are of same name, then compiler get confuse, which variable it is pointing, and which to use
+then "this" keyword is used to defferenciate between it
+
+class Apple{
+    //instant variable, by default private
+    int a, b;
+
+    //creating constructor with "Local variables" of same name as "Instant Variables"
+    public;
+    Apple(int a, int b){
+        this->a = a;     //this with arrow pointer
+        this->b = b;
+        // a = a; b = b; will confuse the compiler
+    }
+    void func(){
+        cout<<a<<" "<<b;
+    }
+};
+int main(){
+    Apple obj1(3, 5);
+    obj.func();       // 3, 5
+}
+//if "this" is not used, then it will print memeory address of local variables "a and b", as compiler thinks, a & b is pointing to itself
+----------------------------------------------------------------------------------------------------------------------------------------
+
+-> What is friend function in C++?
+
+Friend functions helps to acces "Private" and "Protected" members of a class to outside the class,
+even though Friend function itself is not a member of that class.
+
+Encapsulation also do the same using getter/setter using public function, but it allows only to "Private". 
+
+Friend class is also a class, which can access memebers of Private class outside;
+class myClass{
+    private:
+    int a = 5;
+
+    friend class myClass2;
+};
+class myClass2{
+    public:
+    void myFunction(myClass obj){    //as parameter taking Object to myClass
+        cout<<obj.a;                 //this will print 5
+    }
+};
+
+Friend function can be:
+-> Global function
+-> Function of another class
+
+class myClass{
+    private:
+    int a = 5;
+
+    friend void myFunc(myClass);
+};
+void myFunc(myClass obj){   //as parameter taking Object to myClass
+    cout<<obj.a;            //will print 5
+}
+-------------------------------------------------------------------------------------------------------
+
+-> What is the difference between throw and throws?
+
+throw → Used to throw an exception.
+throws → Used in function signature to specify exceptions (only in Java)
+-------------------------------------------------------------------------------------------------------
+
+-> How do you declare and use a pointer to a function in C++?
+
+A function pointer stores the address of a function and can be used to call it dynamically.
+#include <iostream>
+using namespace std;
+void display() { cout << "Hello"; }
+int main() {
+ void (*funcPtr)() = display; // Function pointer
+ funcPtr(); // Calls display()
+---------------------------------------------------------------------------------------------------------
+
+-> What are wild, dangling, and null pointers?
+
+Wild Pointer: A pointer that is uninitialized or points to some random memory location
+              int *p;  // wild pointer (not initialized)
+              // cout << *p;  ❌ Dangerous! Could crash
+              
+Dangling Pointer: A pointer that used to point to valid memory, but that memory is freed or out of scope.
+              int *p = new int(10);
+              delete p;     // memory freed
+              // cout << *p; ❌ Dangling pointer, points to freed memory
+
+Null Pointer: A pointer that points to nothing.
+                int *p = nullptr;  // null pointer
+                if (p) {
+                    cout << *p;
+                } else {
+                    cout << "Pointer is null, cannot dereference." << endl;
+                }
+                //output: Pointer is null, cannot dereference.
+-----------------------------------------------------------------------------------------------------------
+
+-> How does pointer arithmetic work in C++?
+
+Pointer arithmetic involves incrementing or decrementing pointers based on data types.
+int arr[] = {10, 20, 30};
+int *p = arr;
+p++; // Moves to next element (20)
+cout << *p; // Output: 20
+{similar like we take pointers in Array, and do i++}
+--------------------------------------------------------------------------------------------------------------
+
+-> What is a reference variable in C++?
+
+A reference variable is a variable that refers to the same memory location as another variable,
+so any change made through the reference also affects the original variable.
+int x = 5;
+int &y = x; // y is another name for x
+y = 10; // Modifies x as well
+-------------------------------------------------------------------------------------------------------------
+
+-> What is a pointer to a reference?
+
+A pointer cannot store a reference, but it can store the address of a referenced variable.
+int x = 10;
+int &ref = x;
+int *ptr = &ref; // Pointer to referenced variable
+cout << *ptr; // Output: 10
+-------------------------------------------------------------------------------------------------------------
+
+-> What is a double pointer (**)?
+
+A double pointer is a pointer that stores the address of another pointer. It's a pointer to a pointer.
+    int a = 10;'
+
+    int *p = &a;      // pointer to int
+    int **pp = &p;    // pointer to pointer
+
+    cout << a << endl;     // 10
+    cout << *p << endl;    // 10
+    cout << **pp << endl;  // 10
+------------------------------------------------------------------------------------------------------------
+
+-> How does dynamic memory allocation work with pointers?
+
+Memory can be allocated dynamically using new and deallocated using delete.
+
+int *p = new int(5); // Allocates memory
+cout << *p; // Output: 5
+delete p; // Free memory
+-------------------------------------------------------------------------------------------------------------
+
+-> What is the difference between struct, enum, and union in C++?
+
+Struct and union are same, just a difference how it allocates memeory.
+Struct: Each member gets separate memory 
+{Stores Multiple variables}
+{Memory Allocation Separate for each membe}
+{Example: Grouping related data}
+
+Union: Only one member can hold value at a time 
+A union is similar to a struct, but all members share the same memory space.
+{store One variable at a time}
+{Memory Allocation Shared among members}
+{Example: Saving memory}
+
+it will occupy total 4+4+8+8+1 = 25 bytes Memory seperately for each members
+struct Apple{
+    int a;     //4 bytes
+    float b;   //4 bytes
+    double c;  //8 bytes
+    long d;    //8 bytes
+    char e;    //1 bytes
+};
+    obj.a = 10;
+    obj.c = 3.14;
+    cout << obj.a << endl;  // 10 ✅
+    cout << obj.c << endl;  // 3.14 ✅  
+
+But here, it will occupy, largest of all these that is 8 bytes of memeory, 
+and since all members share the same memory location, it can hold only one value at a time.
+union Apple{
+    int a;
+    float b;
+    double c;
+    long d;
+    char e;
+};
+    obj.a = 10;
+    obj.c = 3.14;
+    cout << obj.a << endl; 
+    cout << obj.c << endl;  
+If you write a = 10, memory stores int
+Then if you write c = 3.14, same memory is overwritten
+So previous value is lost ❌
+
+Enum: Its internally assigned integer values to a given data, to improve code readability and maintainability. OR
+An enum is a user-defined data type that assigns names to a set of integer constants values, improving code readability and maintainability.
+{Stores Named constants}
+{Example: Defining named values}
+
+enum Day { MON, TUE, WED };
+int main() {
+    Day today = TUE;
+    cout << today;   // Output: 1
+}
+--------------------------------------------------------------------------------------------------------
+
+-> When to use Struct vs Class
+
+struct → default access = public
+struct: when you just want to store data (data holder)
+
+class → default access = private
+class: when you want data + functions together (OOP), Need encapsulation, abstraction, Want to hide data (private members)
+
+// Struct Example
+#include <iostream>
+using namespace std;
+struct Student {
+ string name;
+ int age;
+};
+int main() {
+ Student s1 = {"John", 20};
+ cout << s1.name << " is " << s1.age << " years old.";
+}
+------------------------------------------------------------------------------------------------------------
+
+->  When should you use struct, enum, or union?
+
+struct → When you need a simple data container
+class → When you need OOP (data + behavior)(encapsulation (data hiding))
+enum → When you have fixed constant values, You want named constants instead of numbers
+(enum Status { SUCCESS, FAIL, PENDING }; States (ON/OFF), Menu options)
+union → When memory optimization is needed, Only one value is needed at a time
+------------------------------------------------------------------------------------------------------------
+
+-> What is exception handling in C++?
+
+Exception handling in C++ is a mechanism to handle/manage runtime errors using try, catch, and throw, 
+so that the program does not crash and continues execution normally.
+
+#include<bits/stdc++.h>
+using namespace std;
+class Bank{
+    public:   
+    string name;
+    int amount, current_balance;
+    
+    Bank(string name, int amount, int current_balance){
+        this->name = name;
+        this->amount = amount;
+        this->current_balance = current_balance;
+    }
+    
+    void credit(int amount){
+        if(amount> 0){
+            current_balance += amount;
+            cout<< amount<<" is credited";
+        }else{
+            cout<<"Invalid amount";
+        }
+    }
+    void deposit(int amount){
+        if(amount > 0 && amount<= current_balance){
+            current_balance -= amount;
+            cout<<amount<<" is deducted";
+        }else if(amount < 0){
+            cout<<"Negative number cant be enter";
+        }else{
+            cout<<amount<<" your balance is low";
+        }
+    }
+};
+int main(){
+    Bank person1("naman", 0, 5000);
+    person1.credit(5000);
+    person1.deposit(200);
+    return 0;
+}
+//Above code is the normal example
+
+#include<bits/stdc++.h>
+using namespace std;
+class Bank{
+    public:   
+    string name;
+    int amount, current_balance;
+    
+    Bank(string name, int amount, int current_balance){
+        this->name = name;
+        this->amount = amount;
+        this->current_balance = current_balance;
+    }
+    
+    void credit(int amount){
+        if(amount> 0){
+            current_balance += amount;
+            cout<< amount<<" is credited";
+        }else{
+            throw "Invalid amount";
+        }
+    }
+    void deposit(int amount){
+        if(amount > 0 && amount<= current_balance){
+            current_balance -= amount;
+            cout<<amount<<" is deducted";
+        }else if(amount < 0){
+            throw "Negative number cant be enter";
+        }else{
+            throw "your balance is low";
+        }
+    }
+};
+int main(){
+    Bank person1("naman", 0, 5000);
+    try{
+        person1.credit(500);    //500 is credited
+        person1.deposit(8000);  //Exception Occured: your balance is low
+        person1.credit(800);    //this will not execute
+    }
+    catch(const char *e){
+        cout<<"Exception Occured: "<<e<<endl;
+    }
+    return 0;
+}
+//once the error occured, it will not execute further remaning program, therefor it will help us to figure out at which line it giving error
+Why Exception Handling is Needed
+Prevents program termination (crash)
+Handles unexpected runtime errors
+Improves reliability and robustness
+----------------------------------------------------------------------------------------------------------------------
+
+-> What is the difference between throw, try, and catch?
+
+throw: Raises an exception
+try: Defines a block that might throw an exception
+catch: Handles the exception
+
+try defines the block of risky code, throw generates an exception, and catch handles that exception to prevent program termination
+------------------------------------------------------------------------------------------------------------------------
+
+-> Can we have multiple catch blocks in C++?
+
+Yes ✅, C++ allows multiple catch blocks for a single try. To handle different types of exceptions differently.
+A generic catch block (catch(...)) handles any type of exception.
+
+#include <iostream>
+using namespace std;
+int main() {
+    try {
+        throw 10;   // try changing to "error" or 3.14
+    }
+    catch (int e) {
+        cout << "Integer exception: " << e;
+    }
+    catch (const char* msg) {
+        cout << "String exception: " << msg;
+    }
+    catch (double d) {
+        cout << "Double exception: " << d;
+    }
+}
+-----------------------------------------------------------------------------------------------------------------------
+
+-> What happens if an exception is not caught?
+
+If an exception is not caught, C++ calls std::terminate() and the program ends suddenly and unexpectedly, without any warning or proper completion.
+If no catch block handles the exception, the program terminates abnormally.
+Example (Unhandled Exception):
+int main() {
+ throw 5; // No catch block
+ return 0;
+}
+ Result: Program crashes with terminate called after throwing an instance of 'int'
+------------------------------------------------------------------------------------------------------------------------
+
+-> What is an array in C++? Difference between a static and dynamic array?
+
+An array is a collection of elements of the same data type stored in contiguous memory locations.
+Declaration:
+int arr[5]; // Declares an array of 5 integers
+Initialization:(means providing values to it)
+int arr[5] = {1, 2, 3, 4, 5}; 
+
+A static array has a fixed size defined at compile time 
+int arr[3] = {1, 2, 3};
+
+A dynamic array can be resized and allocated at runtime (Size is decided at runtime)
+int n;
+cin >> n;
+int* arr = new int[n];
+
+In modern C++, we prefer: vector<int> arr; 
+Because it handles dynamic resizing automatically
+-----------------------------------------------------------------------------------------------------------------------
+
+-> How do you pass an array to a function?
+
+Arrays are passed by reference using pointers.
+Arrays are passed by reference (actually as pointers) by default in C++.
+
+Method 1: Passing with pointer (most common)
+void printArray(int arr[], int n){ }
+
+Method 2: Explicit pointer
+void printArray(int* arr, int n){ }
+
+Method 3: Passing by reference (size fixed)
+void printArray(int (&arr)[5]){ }
+----------------------------------------------------------------------------------------------------------------------
+
+-> What is a multi-dimensional array in C++?
+
+A multi-dimensional array stores data in a matrix-like format.
+int matrix[3][3]; // 2D array
+---------------------------------------------------------------------------------------------------------------------
+
+-> What is a string in C++?
+
+A string in C++ is a sequence of characters used to store and manipulate text.
+
+1. C-style String (Character Array) (inherited from the C language)
+char str[] = "Hello";
+a) Stored as array of characters
+b) Ends with null character \0
+
+2. C++ String (std::string) (introduced in C++)
+#include <string>
+string str = "Hello";
+a) Part of Standard Library
+b) Dynamic and easy to use ✅
+----------------------------------------------------------------------------------------------------------------------
+
+-> What is the difference between C-style strings and std::string?
+
+Feature                           | C-style String (char[]) | std::string
+Null-terminated                   | Yes ('\0')              |  No
+Easy to manipulate                | No                      |  Yes
+Requires manual memory management | Yes (Fixed size)        |  No (Dynamic (resizable))
+----------------------------------------------------------------------------------------------------------------------
+
+-> How do you declare and initialize a C-style string?
+
+char str[] = "Hello"; // Automatically adds '\0' at the end
+----------------------------------------------------------------------------------------------------------------------
+
+-> How do you declare and initialize an std::string?
+
+#include <string>
+std::string str = "Hello";
+----------------------------------------------------------------------------------------------------------------------
+
+-> How do you find the length of a string in C++?
+The length of a string in C++ can be found using .length() or .size() for std::string, 
+and strlen() for C-style strings.
+
+string str = "Hello";
+cout << str.length();   // Output: 5
+str.size();             // same as length()
+
+char str[] = "Hello";
+cout << strlen(str);   // Output: 5
+----------------------------------------------------------------------------------------------------------------------
+
+-> What are the different string manipulation functions in C++?
+std::string and c-type string has alot diffrent type of Manipulation, Search it;
+----------------------------------------------------------------------------------------------------------------------
+
+-> How do you convert a string to an integer in C++?
+
+stoi() → string to int
+to_string() → int to string
+
+    // string → int
+    string s = "123";
+    int num = stoi(s);
+
+    // int → string
+    int x = 456;
+    string str = to_string(x);
+-----------------------------------------------------------------------------------------------------------------------
+
+-> How do you compare two strings in C++?
+
+1. Using == Operator
+if (s1 == s2)
+
+2. Using .compare() Function
+if (s1.compare(s2) == 0)
+----------------------------------------------------------------------------------------------------------------------
+
+-> How do you concatenate strings in C++?
+
+1. Using + Operator
+string result = s1 + s2;
+
+2. Using .append() Function
+s1.append(s2);
+----------------------------------------------------------------------------------------------------------------------
+
+-> What is the purpose of new and delete in C++?
+
+new is used to dynamically allocate memory on the heap (Heap is a region of memory used for dynamic memory allocation at runtime)
+delete is used to deallocate memory that was allocated using new.
+
+int* ptr = new int(10); // Allocates memory for an integer
+delete ptr; // Frees the allocated memory
+----------------------------------------------------------------------------------------------------------------------
+
+-> What is the difference between new/delete and malloc/free?
+
+new/delete are C++ operators that handle object construction and destruction, 
+while malloc/free are C functions that only allocate and deallocate raw memory without initialization.
+
+new/delete →
+a) C++ operators
+b) calls constructor/ destructor
+c) new: returns proper type (no casting needed)
+d) Failure Handling: new throws exception (bad_alloc)
+e) new can initialize memory
+
+malloc/free →
+a) C functions
+b) do NOT call constructor/destructor
+c) malloc: returns void* → needs typecasting
+d) Failure Handling: malloc returns NULL
+e) malloc does not initialize memeory(garbage value)
+-----------------------------------------------------------------------------------------------------------------------
+
+-> What is the difference between delete and delete[]?
+
+delete is used for a single object allocated with new.
+delete[] is used for an array allocated with new[].
+
+int* p1 = new int(10);
+delete p1; // Correct
+
+int* p2 = new int[5];
+delete[] p2; // Correct (deletes entire array)
+
+Using delete instead of delete[] on an array causes undefined behavior.
+------------------------------------------------------------------------------------------------------------------------
+
+-> What happens if you delete the same pointer twice?
+
+If delete is called twice on the same pointer, it leads to undefined behavior (double free error) 
+programm will crash
+-----------------------------------------------------------------------------------------------------------------------
+
+-> How do you allocate and deallocate memory for a class object using new?
+
+Example with Constructor & Destructor:
+#include <iostream>
+using namespace std;
+class Student {
+public:
+ Student() { cout << "Constructor called!\n"; }
+ ~Student() { cout << "Destructor called!\n"; }
+};
+int main() {
+ Student* s = new Student();
+ delete s; // Calls destructor before freeing memory
+}
+
+Output:
+Constructor called!
+Destructor called!
+----------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,33 @@
+OOPS (Object Oriented Programming) is used when we want to work with data by organizing it into objects. It allows us to create our own objects that combine data and methods, and helps in abstraction, making the code more structured and easier to manage.
+
+Bottom-up approach in OOPS means building the program by first creating small, basic objects or components, and then combining them to form more complex systems.
+
+Opposite:
+Bottom-up (OOPS) → start small → build big
+Top-down → start from big system → break into smaller parts
+
+In the top-down approach, we start from a large system, break it down into smaller components, and then work on each component step by step (structural programming).
+
+A class is a blueprint or template used to create objects, which defines their properties and behavior.
+
+When you create an object from a class, it inherits all the variables and functions defined inside that class.
+
+By default, all members of a class are private if you don't specify an access specifier:
+
+Compile time is the phase when the code is converted into machine code before execution.
+Runtime is the phase when the program is actually executing.
+Runtime polymorphism means the function call is resolved at runtime (during execution), not at compile time.
+👉 Same function name → different behavior
+👉 Decision happens while program is running
+👉 “A virtual function is a function declared with the virtual keyword in a base class, which allows it to be overridden in a derived class and supports runtime polymorphism.”
+
+“Runtime polymorphism is achieved using virtual functions and is typically implemented using base class pointers or references, which allows the program to decide at runtime which function to call.”
+“Runtime polymorphism is usually implemented using base class pointers and virtual functions.”
+
+Compile Time
+👉 “The phase when the code is checked and converted into machine code before execution.”
+Runtime
+👉 “The phase when the program is actually running and executing instructions.”
+
+👉 Compile = before run
+👉 Runtime = during run
