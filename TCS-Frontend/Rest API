@@ -1,0 +1,98 @@
+API stands for Application Programming Interface
+API is used to communicate multipe applications
+An API key is used to identify, secure, and control how an API is used.
+Authentication (Who are you?), Security, Usage Tracking, Billing & Limits [often have limits (e.g., 1000 requests/day)]
+
+It defines a set of rules and protocols, which allows one program to request data or services from another and
+returns a response (usually in JSON or XML format)
+
+-> Types of APIs
+Web APIs (used over the internet)
+REST APIs (most common)
+SOAP APIs (older, more strict)
+Library APIs (used within programming languages)
+
+Example 1:
+Zomato does not create its own maps. Instead, it uses the Google Maps API from Google. This helps Zomato show the location and track the delivery for customers. Google does not give full access to its system. It only allows limited data that Zomato needs. This is controlled using an API, and security is maintained using an API key.
+
+Example 2:
+When a user signs up on a new website, they may see options like “Sign up with Google” or “Sign up with LinkedIn”. This is done using an API. The website uses Google or LinkedIn to verify the user’s identity. Since these platforms already have verified user data, the new website does not need to check everything from the beginning. It simply uses the basic details provided and creates an account for the user.
+
+API is a piece of code, which includes "Classes", "Interfeces" and "Methods"
+
+API provides proper documnetation of rules, protocols and guidlines, how to use API correctly and effectively.
+
+Data is shared in XML/JSON format; and classes, interfaces and methods is created to read those data
+
+---------------------------------------------------------------------------------------------------------------------
+
+REST (Theory)
+
+-> Architectural System: 
+It defines how multiple systems should communicate with each others.
+It outlines the principles and patterns for data Exchange within Multipe Systems
+
+Examples:
+REST: Representational State Transfer
+SOAP: Simple Object Access Protocol
+GraphQL:
+RPC: Remote Procedure call
+
+REST is a Architectural style having 6 constarints(is something that controls how something should be done)
+REST constraints are rules that make APIs scalable, simple, and reliable.
+a) Client-Server : Frontend (client) and backend (server) should be separate
+b) Stateless : Server should not remember previous requests
+c) Cacheable : Responses should tell if they can be saved (cached)
+d) Uniform Interface : Use standard API structure
+e) Layered System : System can have multiple layers (security, proxy, etc.)
+f) Code on Demand : Server can send code (like JavaScript)
+
+REST define how your API should be designed and behave
+
+REST: Representational State Transfer
+-> Represntational: how it should represent data, resource or object (example: data format: XML/JSON or can be in more forms)
+-> State: Current Information
+-> Transfer: How data is trasfered, using HTTP methods: GE, POST etc
+--------------------------------------------------------------------------------------------------------------------
+
+Restful (Practical/ Code/ Implementation)
+
+It is the actual API or Web Service, which is designed following REST Constraints
+
+API have so many diffrenet types and one of the type is web services
+
+API: Broad Concept
+-> It can exchange data in various formats; XML, JSOn, HTML, Images etc.
+-> It uses various custome Methods and Protocols
+
+Web Service: Narrow Concept
+-> It exchange data mostlyin XML or JSON format
+-> It uses HTTP methods; GET, POST, DELETE etc
+------------------------------------------------------------------------------------------------------------------
+
+RESt       -> Architectual Style (6 Constraints / 6 Rules)
+REStful    -> Actual Code, which follows REST Constraints
+API and WebServices -> API broad term, webService is part of API
+RESTfulAPI (term used in 'Python', 'PHP', 'Node.Js')
+RESTful Web Services (term used in 'SpringBoot')
+
+
+REST API in React
+React + REST API = fetching data from a server and showing it in UI
+In React, you implement REST API by calling API endpoints using fetch or Axios and displaying the data in UI.
+
+REST API: Any API that uses REST principles, may follow some rules, may not strictly follow all 6 constraints
+RESTful API: An API that strictly follows all REST constraints (rules)
+REST API and RESTful API are similar, but RESTful API strictly follows all REST constraints, while REST API may not
+
+React apps commonly use:
+-> fetch() (built-in)
+-> Axios (popular library)
+
+CRUD Operations in REST
+Operation	| Method	| Example
+
+Create	    | POST	    | Add user
+Read	    | GET	    | Get users
+Update	    | PUT	    | Update user
+Delete	    | DELETE	| Remove user

@@ -1,0 +1,58 @@
+CSS (Cascading Style Sheets) is a style sheet language used to describe the presentation of HTML documents — including layout, colors, and fonts.
+
+Inline CSS – Style in the HTML tag
+Internal CSS – Style in <style> tag inside <head>
+External CSS – Style in a separate .css file
+
+id: Used to style one unique element
+<div id="header">Hello</div>
+#header {
+  color: blue;
+}
+
+class: Used to style multiple elements
+<div class="box">A</div>
+<div class="box">B</div>
+.box {
+  color: red;
+}
+-------------------------------------------------------------------------------------------------------------------
+
+How to make a website responsive using CSS?
+
+• Use media queries
+• Use percentages/flexbox
+• Avoid fixed units
+
+-> Media Queries (Core of Responsiveness)
+Apply styles based on screen size
+/* For tablets */
+@media (max-width: 768px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+/* For mobile */
+@media (max-width: 480px) {
+  .container {
+    flex-direction: column;
+  }
+}
+
+-> Use the Viewport Meta Tag
+This tells the browser how to scale your page on different devices
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+-> Use Flexible Layouts (Avoid Fixed Widths)
+Instead of fixed sizes like px, use flexible units:
+% (percentage)
+vw, vh (viewport width/height)
+em, rem
+
+-> Use Flexbox or Grid
+Modern layout systems make responsiveness easier
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}

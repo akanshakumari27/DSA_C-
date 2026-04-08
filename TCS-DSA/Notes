@@ -1,0 +1,140 @@
+-> Machine language / Assembly language / High level language
+
+ML: The lowest-level language written in binary (0s and 1s), directly understood by the computer hardware (CPU)
+AL: Slightly higher level than machine language, Uses mnemonics (short codes) instead of binary
+HLL: Closest to human language, Easy to read, write, and understand
+
+Machine Language → Talking in pure numbers (0/1)
+Assembly Language → Using short commands (codes)
+High-Level Language → Speaking English-like language
+
+✅ Final Summary
+Machine → fastest but hardest
+Assembly → easier but still low-level
+High-level → easiest and most widely used
+-------------------------------------------------------------------------------------------------------------------
+
+-> Left-Shift Operator
+
+All binary digits shifting to Left Side: <- Left
+
+6 << 1 = 12 : x = 1
+6 << 2 = 24 : x = 2
+6 << 3 = 48 : Formula (6 * (2^x))
+
+-> Right-Shift Operator
+
+All binary digits shifting to Right Side: -> Right
+
+6 >> 2 : x=2
+Formula : (6 / (2^x))
+----------------------------------------------------------------------------------------------------------------------
+
+-> Decimal to Binary
+int main(){
+    int n;
+    cin>>n;
+    int ans = 0;
+    int mul = 1;
+    while(n>0){
+        int rem = n%2;
+        n = n/2;
+        ans = rem*mul + ans;
+        mul = mul*10;  //this will keep increasing power of 10
+    }
+    cout<< ans; 
+    return 0;
+}
+
+-> Binary to Decimal
+
+int main(){
+    int n;
+    cin>>n;
+    int ans = 0;
+    int mul = 1;
+    //while(num) still its vaild, as it coinsider true only, > 0(false)
+    while(n > 0){   
+        int rem = n%10;
+        n = n/10;
+        ans = rem * mul + ans;
+        mul = mul * 2;
+    }
+    cout<<ans;
+    return 0;
+}
+-----------------------------------------------------------------------------------------------------------------------
+
+-> // Prime
+int main() {
+    int n;
+    cin >> n;
+    if(n <= 1){
+        cout << "Not Prime";
+        return 0;
+    }
+    for(int i = 2; i * i <= n; i++){
+        if(n % i == 0){
+            cout << "Not Prime";
+            return 0;
+        }
+    }
+    cout << "Prime";
+    return 0;
+}
+
+-> Factorial
+int main(){
+    int n;
+    cin>>n;
+    int ans = 1;
+    for(int i = 1; i<=n; i++){
+        ans = ans *i;
+    }
+    cout<< ans;
+    
+    return 0;
+}
+---------------------------------------------------------------------------------------------------------------->
+
+-> Pass by Value vs Refrence
+
+In pass by value, a copy of the variable is passed, so changes do not affect the original variable. 
+In pass by reference, the actual variable is passed using references (&), so any changes inside the function modify the original variable.
+
+Feature	                |  Pass by Value      |  Pass by Reference
+What is passed          |  Copy	              |  Original variable
+Memory	                |  New memory created |	 Same memory
+Changes affect original?|	❌ No	         | ✅ Yes
+Syntax	                |  int x	          |  int &x
+
+// Pass By value
+void update(int x){
+    x = 10;
+}
+int main(){
+    int a = 5;
+    update(a);
+    cout << a;   // Output: 5
+    return 0;
+}
+
+// Pass By Refrence
+void update(int &x){
+    x = 10;
+}
+int main(){
+    int a = 5;
+    update(a);
+    cout << a;   // Output: 10
+    return 0;
+}
+---------------------------------------------------------------------------------------------------------------------
+
+-> Memory Consumption in Array
+
+For Integer: [2, 7, 3, 8]
+Imagine, first address is 500, therfore as int consume 4 bytes, so [500, 504, 508, 516]
+
+For Char: ['d', 'y', 'k', 'r']
+Imagine, first address is 500, therfore as cahr consume 1 bytes, so [500, 501, 502, 503]

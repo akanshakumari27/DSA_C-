@@ -1,0 +1,73 @@
+Designed and implemented a React.js-based Admin Dashboard for a Learning Management Platform.
+• Enabled students to access courses, solve quizzes, submit assignments, and track their progress.
+• Built interactive UI components using React.js, JavaScript (ES6+)
+
+Broke UI into small reusable parts;
+-> Navbar
+-> Sidebar
+-> QuizCard
+-> AssignmentForm
+
+What are UI components?
+
+Each component represents a piece of the UI with its own structure, style, and behavior. Components are reusable, meaning you can use them in multiple places without rewriting code. In React.js, components can be functional or class-based, and they can have state, props, and event handlers.
+-----------------------------------------------------------------------------------------------------------------------
+
+Components I built for the student dashboard
+
+For my Learning Management Platform, I built these interactive components:
+Component	            |   Purpose
+Navbar / Sidebar        |   Navigation between courses, quizzes, assignments, and progress
+CourseCard	            |  Displays course info (title, description, progress)
+QuizCard	            |  Shows quiz questions and multiple-choice options; tracks user answers
+AssignmentForm	        |  Allows students to upload assignments and submit them via API
+ProgressTracker	        |  Shows progress bars for completed courses, quizzes, and assignments
+Loading / Spinner Component    |   Displays while data is being fetched from API
+Notification / Alert Component |   Shows success or error messages dynamically
+
+
+App (Main Page)
+│
+├── Navbar
+├── Sidebar
+├── Main Content
+│    ├── CourseList
+│    │     └── CourseCard
+│    ├── QuizSection
+│    │     └── QuizCard
+│    ├── AssignmentSection
+│    │     └── AssignmentForm
+│    └── ProgressTracker
+└── Footer
+-------------------------------------------------------------------------------------------------------------------------
+
+Redux is a "state management library" used to manage and store application data in a centralized store
+It is commonly used with React for handling complex state across multiple components
+
+Dynamic rendering means the UI automatically updates when data (state) changes, without reloading the whole page
+Dynamic rendering = UI changes based on data in real time
+--------------------------------------------------------------------------------------------------------------------------
+
+Optimized frontend performance by refactoring components 
+
+You improved the speed and efficiency of your UI by rewriting or restructuring your components in a better way
+Improved existing code without changing functionality
+Making components:
+-> Cleaner
+-> Reusable
+-> Efficient
+
+Reduced unnecessary re-renders (Used React.memo, useMemo, useCallback in React)
+Broke large components into smaller ones
+Removed duplicate code
+
+-> Before (bad):
+function Dashboard() {
+  // everything in one component
+}
+
+-> After (good):
+<Navbar />
+<Sidebar />
+<CourseList />
+<QuizSection />

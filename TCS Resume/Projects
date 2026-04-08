@@ -1,0 +1,42 @@
+Giphy Site
+
+Tailwind CSS is a utility-first CSS framework used to design UI directly inside your HTML/JSX using small, ready-made classes
+
+Framework   React (with JSX)
+Build Tool  Vite
+Language    JavaScript (96.8%), HTML (2.2%), CSS (1%)
+Linting     ESLint
+Deployment  Vercel
+API         Giphy API (stored in .env file)
+
+Fetching an API means sending a request to a server and getting data back
+Frontend → Request → Server/API → Response → UI Update
+
+Using fetch() + async/await
+
+We usually fetch API inside useEffect
+import { useEffect, useState } from "react";
+
+function App() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await fetch("https://api.example.com/data");
+      const result = await res.json();
+      setData(result);
+    };
+
+    fetchData();
+  }, []);
+
+  return <div>{data.length}</div>;
+}
+GET → fetch data
+POST → send data
+PUT/PATCH → update
+DELETE → remove
+
+API fetching involves sending an HTTP request from the frontend to a server and receiving a response, usually in JSON format. In React, I typically use fetch or async/await inside useEffect to call APIs and store the response in state, which then updates the UI dynamically
+
+Bootstrap is a component-based CSS framework that provides pre-designed UI elements, allowing faster development. Tailwind CSS is a utility-first framework that offers low-level classes for building custom designs. Bootstrap is easier for quick projects, while Tailwind provides greater flexibility and is preferred for modern, highly customized interfaces

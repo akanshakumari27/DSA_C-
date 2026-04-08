@@ -1,0 +1,446 @@
+A markup language is a way of writing text where you use tags to define structure and meaning, not logic.
+It tells the browser “what this content is”, not “how to calculate”.
+
+HyperText = Text with links (non-linear navigation)
+“Hyper” means beyond normal
+So HyperText = text beyond normal text
+
+Normal text → read line by line
+HyperText → can jump anywhere using links
+
+HTML tags are not case sensitive: <P> means the same as <p>.
+
+HTML elements with no content are called empty elements.
+The <br> tag defines a line break, and is an empty element without a closing tag:
+
+HTML headings are defined with the <h1> to <h6> tags.
+
+-------------------------------------------------------------------------------------------------------------------
+All HTML elements can have attributes
+Attributes provide additional information about elements
+-> The href Attribute: <a href="https://www.w3schools.com">Visit W3Schools</a>
+-> The src Attribute: <img src="img_girl.jpg">
+
+There are two ways to specify the URL in the src attribute:
+Absolute URL - Links to an external image that is hosted on another website.
+Relative URL - Links to an image that is hosted within the website.
+
+The width and height Attributes
+<img src="img_girl.jpg" width="500" height="600">
+
+-> The alt Attribute: <img src="img_girl.jpg" alt="Girl with a jacket">
+The required alt attribute for the <img> tag specifies an alternate text for an image, if the image for some reason cannot be displayed.
+
+-> The style Attribute: <p style="color:red;">This is a red paragraph.</p>
+The style attribute is used to add styles to an element, such as color, font, size, and more.
+
+-> The lang Attribute: <html lang="en">
+You should always include the lang attribute inside the <html> tag, to declare the language of the Web page.
+
+-> The title Attribute: <p title="I'm a tooltip">This is a paragraph.</p>
+The title attribute defines some extra information about an element.
+
+---------------------------------------------------------------------------------------------------------------------
+
+Style: 
+
+<body style="background-color:powderblue;">
+<h1 style="color:blue;">This is a heading</h1>
+<p style="font-family:courier;">This is a paragraph.</p>
+<p style="font-size:160%;">This is a paragraph.</p>
+<p style="text-align:center;">Centered paragraph.</p>
+-----------------------------------------------------------------------------------------------------------------
+
+HTML Text Formatting:
+
+<b> - Bold text
+<strong> - Important text
+<i> - Italic text
+<em> - Emphasized text
+<mark> - Marked text
+<small> - Smaller text
+<del> - Deleted text
+<ins> - Inserted text
+<sub> - Subscript text   // H2O
+<sup> - Superscript text //2^4
+<b>This text is bold</b>
+----------------------------------------------------------------------------------------------------------------
+
+HTML <abbr> for Abbreviations:
+<p>The <abbr title="World Health Organization">WHO</abbr> was founded in 1948.</p>
+
+HTML <address> for Contact Information
+<address>
+Written by John Doe.<br>
+Visit us at:<br>
+Example.com<br>
+Box 564, Disneyland<br>
+USA
+</address> //tis will show in little italic form
+
+<!-- Write your comments here -->
+-------------------------------------------------------------------------------------------------------------------
+
+HTML Colors
+
+HTML colors are specified with predefined color names, or with RGB, HEX, HSL, RGBA, or HSLA values.
+<h1 style="color:Tomato;">Hello World</h1>
+<h1 style="border:2px solid Tomato;">Hello World</h1>
+
+rgb(255, 99, 71)
+#ff6347 {Hex color values}
+hsl(9, 100%, 64%)
+
+rgba(255, 99, 71, 0.5)
+hsla(9, 100%, 64%, 0.5)
+
+Cascading Style Sheets (CSS) is used to format the layout of a webpage.
+Inline - by using the style attribute inside HTML elements 
+(<h1 style="color:blue;">A Blue Heading</h1>)
+
+Internal - by using a <style> element in the <head> section
+<head>
+<style>
+body {background-color: powderblue;}
+h1   {color: blue;}
+p    {color: red;}
+</style>
+</head>
+
+External - by using a <link> element to link to an external CSS file
+<head>
+  <link rel="stylesheet" href="styles.css">
+</head>
+---------------------------------------------------------------------------------------------------------------------
+
+What are void elements in HTML?
+Answer:
+Void elements (self-closing tags) do not require a closing tag,
+e.g., <br>, <img>, <hr>, <input>.
+--------------------------------------------------------------------------------------------------------------------
+
+. What is the difference between <div> and <span>?
+Answer:
+• <div> is a block-level element (takes full width, starts on a new line).
+• <span> is an inline element (takes only necessary width, stays in line
+with text).
+
+<div>This is a div</div>
+<span>This is a span</span>
+-----------------------------------------------------------------------------------------------------------------
+
+What are semantic HTML elements?
+Semantic elements clearly describe their meaning to browsers and developers,
+e.g.:
+• <header>, <footer>, <article>, <section>, <nav>, <aside>.
+----------------------------------------------------------------------------------------------------------------
+
+What is the difference between <strong> and <b>?
+Answer:
+• <strong> indicates strong importance (semantic, used for screen
+readers).
+• <b> simply makes text bold (visual styling only).
+-------------------------------------------------------------------------------------------------------------
+
+<em> is a semantic tag → it gives meaning (importance)
+
+✔️ Features:
+Adds emphasis (stress) to text
+Default style = italic
+Important for SEO + accessibility
+Screen readers change tone
+
+<i> (Italic — Styling Only)
+---------------------------------------------------------------------------------------------------------------
+
+What is the purpose of the <meta> tag?
+Answer:
+It provides metadata about the HTML document, such as:
+• Character encoding (<meta charset="UTF-8">)
+• Viewport settings (<meta name="viewport" content="width=devicewidth, initial-scale=1.0">)
+• SEO descriptions (<meta name="description" content="...">)
+
+Meta tags are placed inside the <head> section of an HTML page and provide information about the webpage to search engines and browsers.
+The <meta> tag lives in the <head> and gives extra info about your web page, like what character set it uses, a description for search engines, or settings for mobile screens. It’s not visible to users but helps browsers and Google understand your page better.
+
+Are Meta Tags Important for SEO?
+👉 YES — but in two ways:
+Direct impact (ranking factors)
+Indirect impact (CTR, user behavior)
+<meta name="description" content="Learn frontend easily">
+
+Meta tags do NOT appear on the visible webpage UI.
+They are placed inside the <head> section of an HTML document and are used by:
+Browsers
+Search engines
+-----------------------------------------------------------------------------------------------------------
+
+What is the difference between id and class attributes?
+Answer:
+• id is unique, id is used to identify one unique element
+<div id="header">Hello</div>
+#header {
+  color: blue;
+}
+
+• class can be reused, multiple elements can have the same class
+<div class="box">A</div>
+<div class="box">B</div>
+.box {
+  color: red;
+}
+---------------------------------------------------------------------------------------------------------------
+
+What is the purpose of the <iframe> tag?
+It embeds another HTML page within the current page, e.g., for videos, maps,
+or ads.
+The <iframe> (inline frame) tag is used to embed another webpage or external content inside your current webpage.
+
+<iframe src="https://example.com" width="500" height="300"></iframe>
+Run HTML
+--------------------------------------------------------------------------------------------------------------
+
+What are HTML forms and their common elements?
+
+Forms collect user input. Common elements:
+<form action="/submit" method="POST">
+ <input type="text" placeholder="Name">
+ <input type="email" required>
+ <input type="password">
+ <input type="checkbox">
+ <input type="radio">
+ <select><option>Option 1</option></select>
+ <textarea></textarea>
+ <button type="submit">Submit</button>
+</form>
+-------------------------------------------------------------------------------------------------------------
+
+What is the difference between GET and POST methods in forms?
+
+{ GET Method: }
+Data sent in URL
+Limited data size
+Chached and Bookmarked
+Use for searches and Fetching data
+<form method="GET" action="/search">
+  <input name="q">
+</form>
+
+{Post: }
+Data not visible in URL, Data sent in request body
+No length limit
+Cannot be bookmarked and cached
+More secure than GET
+Used for sending/saving data
+Used for sensitive data (login, payments) 
+<form method="POST" action="/login">
+  <input name="username">
+</form>
+-----------------------------------------------------------------------------------------------------------------
+
+What is the purpose of the required attribute?
+
+It makes a form field mandatory before submission.
+<input type="text" required>
+-----------------------------------------------------------------------------------------------------------------
+
+What is the difference between <ol>, <ul>, and <dl>?
+Answer:
+• <ol> = Ordered list (1, 2, 3)
+• <ul> = Unordered list (bullets)
+• <dl> = Description list (<dt> term + <dd> definition/description)
+
+<ol>
+  <li>HTML</li>
+  <li>CSS</li>
+</ol>
+
+<dl>
+  <dt>HTML</dt>
+  <dd>Markup language</dd>
+</dl>
+-----------------------------------------------------------------------------------------------------------------
+
+What is the difference between <tr>, <th>, and <td>?
+
+• <tr> = Table row
+• <th> = Table header (bold & centered by default)
+• <td> = Table data cell
+
+<table border="1">
+  <tr>
+    <th>Name</th>
+    <th>Age</th>
+  </tr>
+  <tr>
+    <td>Kishu</td>
+    <td>22</td>
+  </tr>
+</table>
+------------------------------------------------------------------------------------------------------------------
+
+How do you create a hyperlink in HTML?
+
+<a href="https://example.com" target="_blank">Visit Example</a>
+target="_blank" opens the link in a new tab.
+
+<a> → used to create a link
+href → URL of page
+target="_blank" → opens link in new tab
+-----------------------------------------------------------------------------------------------------------------
+
+What is the purpose of the alt attribute in <img>?
+
+It provides alternative text if the image fails to load (also helps with SEO and
+screen readers).
+<img src="logo.png" alt="Company Logo">
+-----------------------------------------------------------------------------------------------------------------
+
+What is the <script> Tag?
+The <script> tag is used to add JavaScript code into an HTML page.
+It allows you to make your webpage interactive and dynamic.
+<script>
+  alert("Hello!");
+</script>
+
+What is the difference between defer and async in <script>?
+
+Async:  Script loads in parallel and executes immediately when ready
+HTML parsing continues
+Script downloads in background
+Executes as soon as downloaded
+Order NOT guaranteed
+
+defer (Deferred Execution): Script loads in parallel but executes after HTML is fully parsed
+HTML parsing continues
+Script downloads in background
+Executes after DOM is ready
+Order is maintained
+----------------------------------------------------------------------------------------------------------------
+
+What is the <svg> tag used for?
+
+It defines vector-based graphics in XML format (scalable without quality loss).
+<svg width="100" height="100">
+ <circle cx="50" cy="50" r="40" fill="red" />
+</svg>
+-------------------------------------------------------------------------------------------------------------------
+
+What is the purpose of the <template> tag?
+
+The <template> tag is used to store HTML content that is not rendered immediately, but can be used later using JavaScript.
+It holds HTML content that can be cloned and inserted via JavaScript (not rendered by default)
+
+<template id="card">
+  <div class="box">
+    <h2>Title</h2>
+  </div>
+</template>
+This will NOT appear on the page
+
+Using It with JavaScript
+<script>
+  let temp = document.getElementById("card");
+  let clone = temp.content.cloneNode(true);
+  document.body.appendChild(clone);
+</script>
+---------------------------------------------------------------------------------------------------------------------
+
+How does HTML5 support multimedia?
+
+Native support without plugins:
+• <audio> for sound
+• <video> for videos
+• <track> for subtitles
+<video controls>
+ <source src="movie.mp4" type="video/mp4">
+ Your browser doesn't support HTML5 video.
+</video>
+-------------------------------------------------------------------------------------------------------------------
+
+What are Web Workers in HTML5?
+
+Web Workers allow JavaScript to run in the background (separate thread) without blocking the main UI thread.
+Means your website stays fast and responsive even during heavy tasks.
+
+They run JavaScript in background threads to prevent UI freezing:
+-----------------------------------------------------------------------------------------------------------------
+
+What is the Web Storage API?
+
+Stores data locally in browser:
+• localStorage (persistent)
+• sessionStorage (tab-specific)
+localStorage.setItem('key', 'value');
+const data = localStorage.getItem('key');
+
+What is Geolocation API in HTML5? 
+Gets user's geographical location.
+--------------------------------------------------------------------------------------------------------------------
+
+What is the Drag and Drop API?
+The Drag and Drop API allows users to drag elements and drop them into another location on a webpage.
+It helps create interactive UI without complex libraries.
+
+What is the purpose of the <output> element?
+Displays calculation results
+
+What is the <meter> element used for?
+Represents a scalar measurement within a known range:
+<meter value="6" min="0" max="10">6/10</meter>
+---------------------------------------------------------------------------------------------------------------------
+
+How do you implement responsive images?
+
+Using srcset and sizes:
+<img srcset="small.jpg 500w, medium.jpg 1000w"
+ sizes="(max-width: 600px) 500px, 1000px"
+ src="fallback.jpg" alt="Responsive image">
+--------------------------------------------------------------------------------------------------------------------
+
+How do you optimize a website for SEO using HTML?
+
+Key techniques:
+• Semantic HTML5 tags
+• Proper <title> and <meta> descriptions
+• <h1> to <h6> hierarchy
+• alt text for images
+• Mobile-friendly viewport
+• Schema markup
+• Clean URL structure
+<meta name="description" content="Page description for SEO">
+<meta name="keywords" content="HTML, CSS, JavaScript">
+
+SEO (Search Engine Optimization) using HTML means writing clean, structured, and meaningful markup so search engines can understand your page better.
+
+-> Use Proper Meta Tags (Helps search engines understand your page)
+<head>
+  <title>Best Frontend Course</title>
+  <meta name="description" content="Learn frontend easily">
+</head>
+
+-> Use Semantic HTML Tags
+<header>, <nav>, <main>, <article>, <footer>
+✔️ Improves readability for search engines
+
+-> Proper Heading Structure (H1–H6)
+Use only one <h1>
+✔️ Maintain hierarchy
+
+-> Use Alt Text for Images
+<img src="img.jpg" alt="Frontend course banner">
+✔️ Helps SEO
+✔️ Improves accessibility
+
+-> Use Clean URLs (via links)
+<a href="/frontend-course">Course</a>
+
+-> Add Meta Viewport (Mobile SEO)
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+-> Use Internal Linking
+<a href="/contact">Contact Us</a>
+✔️ Helps search engines crawl your site
+
+Avoid unnecessary tags
+----------------------------------------------------------------------------------------------------------------------

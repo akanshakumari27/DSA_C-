@@ -1,0 +1,161 @@
+-> What is routing?
+
+routing = route
+Routing is process of selecting path for data to travel from one point to another. Routing figure out the best way to get from A to B
+Devices called routers decide where data should go next. They use rules, tables, or algorithms to choose the best path
+
+In frontend development, routing means deciding which content or page to show when the user navigates to a specific URL without necessarily reloading the whole website.
+
+Routing = mapping a URL → to a UI (component/page)
+/ → Home page
+/about → About page
+/profile → Profile page
+
+In modern apps (React or Vue.js), routing is usually handled on the client side called Client-Side Routing
+The page doesn’t fully reload, JavaScript updates only the needed part of the UI, making apps faster and smoother
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+Server-side routing: Server sends a new HTML page for each URL, Traditional websites
+
+New frameworks like Next.js combine both:
+First page → server-side (fast + SEO)
+Navigation → client-side (smooth UX)
+-------------------------------------------------------------------------------------------------------------------------
+
+-> State Management
+
+Changing of current State
+State management is how your app stores, updates, and uses data (state) across components
+
+“State” = any data that can change
+User login status
+Form input values
+Cart items in an e-commerce app
+Theme (dark/light mode)
+
+const [count, setCount] = useState(0);
+count = current state
+setCount = function to update state
+When state changes → UI updates automatically
+
+Built-in (simple apps): React’s useState, useContext from React
+
+External state management tools
+Used in larger apps:
+Redux → very popular, predictable
+Zustand → simpler, modern
+Recoil → flexible, React-focused
+---------------------------------------------------------------------------------------------------------------------------
+
+Routing – “Which page to show”
+Routing decides what the user sees based on the URL
+
+
+State Management – “What data to show”
+State management controls the data your components display
+-> Logged-in user info
+-> Shopping cart items
+-> Form inputs
+Local: useState, useContext
+Global: Redux, Zustand
+
+
+RESTful API – “Where the data comes from”
+RESTful APIs provide data from the server.
+-> GET /api/products → fetch product list
+-> POST /api/cart → add item to cart
+Frontend fetches data and stores it in state.
+
+
+Example Flow: E-commerce Cart
+URL: /cart → routing loads CartPage
+CartPage checks cart state
+If cart state empty → fetch GET /api/cart
+State updated → UI shows products in cart
+User clicks “Remove” → state updates and API call DELETE /api/cart/:id
+
+Summary
+Routing → “Which component/page to show?”
+State management → “What data is shown and updated?”
+RESTful API → “Where the data comes from or goes to?”
+They work as a team to make modern apps interactive and dynamic
+--------------------------------------------------------------------------------------------------------------------------
+
+-> writing clean and maintainable code, what it mean and how can you do it!
+
+“writing clean, maintainable code”, it means writing code that is easy to read, understand, and modify—not just code that works. This is super important in real-world projects where teams collaborate and software evolves over time.
+
+-> Meaningful names: Variables, functions, and classes should describe their purpose
+-> Keep functions small: Each function should do one thing only
+-> Avoid repetition
+-> Consistent formatting
+-> Error handling (try-catch): Handle errors gracefully instead of crashing the app
+-------------------------------------------------------------------------------------------------------------------------
+
+-> delivering responsive and user-friendly interfaces
+
+1) Responsive means your app adapts to any device or screen size—desktop, tablet, or mobile
+
+This is DONE by:
+a) CSS Media Queries – adjust layout for screen size
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+  }
+}
+b) Flexible grids & layouts – use percentages or CSS Grid/Flexbox
+c) Responsive images – <img srcset> or CSS object-fit
+
+2) User-friendly means the app is intuitive, easy to use, and enjoyable
+a) Clear navigation
+b) Fast loading 
+c) Consistent design – buttons, colors, fonts, and spacing
+d) Feedback & accessibility – e.g., hover effects, error messages, screen reader support
+Example: A “Submit” button changes color on click and shows a spinner while the request is processing
+--------------------------------------------------------------------------------------------------------------------------
+
+-> SEO and web platform optimization
+
+SEO (Search Engine Optimization)
+SEO makes your website easy for search engines (like Google) to understand and rank higher
+
+What SEO focuses on:
+-> Content & Keywords (Use relevant words users search for)
+-> Proper HTML structure (Use semantic tags)
+-> Meta tags (<meta name="description" content="Best online store for shoes" />)
+-> Clean URLs (Good: /products/shoes | Bad: /page?id=123)
+
+Web Platform Optimization
+-> Performance optimization (Minimize JS, CSS, use lazy loading)
+-> Image optimization (Compress images, use modern formats (WebP))
+
+SEO → “Can users find your site?”
+Optimization → “Is your site fast and smooth?”
+👉 Both together = better ranking + better user experience
+----------------------------------------------------------------------------------------------------------------------
+
+-> A JavaScript library is a collection of pre-written JavaScript code that helps you do common tasks faster—without writing everything from scratch.
+
+Popular JavaScript libraries
+React → UI building
+jQuery → DOM manipulation
+Lodash → utility functions
+------------------------------------------------------------------------------------------------------------------------
+
+React and React Native share concepts, but UI needs to be rebuilt. However, business logic and APIs can be reused.
+
+Buikt UI seperately;
+Share API + backend
+Web app (React)
+Mobile app (React Native)
