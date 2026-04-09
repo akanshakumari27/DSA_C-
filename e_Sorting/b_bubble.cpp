@@ -51,3 +51,27 @@ int main(){
 }
 
 // For "vector<int> arr = {13, 46, 24, 52, 20, 9};" we can directly use "i < arr.size()"
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int arr[] = {10, 8, 2, 3, 1, 4};
+    int size = sizeof(arr)/sizeof(arr[0]);
+
+    for(int i = 0; i < size - 1; i++) {
+        for(int j = 0; j < size - i - 1; j++) {
+            if(arr[j] > arr[j + 1]) {
+                swap(arr[j], arr[j + 1]);
+            }
+        }
+    }
+
+    // Print sorted array
+    for(int i = 0; i < size; i++) {
+        cout << arr[i] << " ";
+    }
+
+    return 0;
+}

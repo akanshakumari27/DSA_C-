@@ -15,7 +15,18 @@ The <br> tag defines a line break, and is an empty element without a closing tag
 
 HTML headings are defined with the <h1> to <h6> tags.
 
+  HTML: Used to structure and format content
+  High Level programming language: Used to write programs and perform logic
 -------------------------------------------------------------------------------------------------------------------
+
+Head: this contain information about the webpage, Not visible content
+-> Title of the page : <title>My Website</title>
+-> Meta information : Meta information
+-> Link external files (CSS) : <link rel="stylesheet" href="style.css">
+-> Internal CSS : <style> body { background-color: lightblue; } </style>
+-> JavaScript (optional) : <script> console.log("Hello"); </script>
+
+--------------------------------------------------------------------------------------------------------------------
 All HTML elements can have attributes
 Attributes provide additional information about elements
 -> The href Attribute: <a href="https://www.w3schools.com">Visit W3Schools</a>

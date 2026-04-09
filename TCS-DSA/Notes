@@ -138,3 +138,16 @@ Imagine, first address is 500, therfore as int consume 4 bytes, so [500, 504, 50
 
 For Char: ['d', 'y', 'k', 'r']
 Imagine, first address is 500, therfore as cahr consume 1 bytes, so [500, 501, 502, 503]
+-------------------------------------------------------------------------------------------------------------------------
+
+// SQL
+the second maximum marks can be found in a few common ways. Here are the most standard approaches:
+
+SELECT DISTINCT marks
+FROM students
+ORDER BY marks DESC
+LIMIT 1 OFFSET 1;
+
+SELECT MAX(marks) AS second_max
+FROM students
+WHERE marks < (SELECT MAX(marks) FROM students);

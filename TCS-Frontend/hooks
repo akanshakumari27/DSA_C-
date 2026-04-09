@@ -1,0 +1,59 @@
+useState
+👉 Used to manage state (data) in a component
+
+import { useState } from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <button onClick={() => setCount(count + 1)}>
+      {count}
+    </button>
+  );
+}
+----------------------------------------------------------------------------------------------------
+
+useEffect
+👉 Used for side effects (API calls, DOM updates, timers)
+
+import { useEffect } from "react";
+
+useEffect(() => {
+  console.log("Component mounted");
+}, []);
+-----------------------------------------------------------------------------------------------------
+
+useContext
+👉 Access data from global context without props drilling
+
+const value = useContext(MyContext);
+----------------------------------------------------------------------------------------------------
+
+useRef
+👉 Access DOM elements or store mutable values
+
+const inputRef = useRef();
+
+<input ref={inputRef} />
+---------------------------------------------------------------------------------------------------
+
+useMemo
+👉 Optimizes performance by caching values
+
+const result = useMemo(() => expensiveFunction(data), [data]);
+---------------------------------------------------------------------------------------------------
+
+useCallback
+👉 Caches functions to prevent unnecessary re-renders
+
+const handleClick = useCallback(() => {
+  console.log("Clicked");
+}, []);
+--------------------------------------------------------------------------------------------------
+
+useReducer
+👉 Advanced state management (like Redux style)
+
+const [state, dispatch] = useReducer(reducer, initialState);
+---------------------------------------------------------------------------------------------------

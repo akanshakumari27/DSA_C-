@@ -40,7 +40,7 @@ int main(){
     int arr[7] = {14, 9, 15, 12, 6, 8, 13};
     int n = sizeof(arr)/sizeof(arr[0]);
 
-    for(int i =0; i<= n-1; i++){
+    for(int i =0; i<n ; i++){
         int j = i;
         while(j > 0 && arr[j-1] > arr[j]){
             swap(arr[j], arr[j-1]);
@@ -53,4 +53,25 @@ int main(){
     }
 
     return 0;
+}
+-----------------------------------------------------------------------------------------------------------------------
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int arr[] = {10, 8, 2, 3, 1, 4};
+	int size = sizeof(arr)/sizeof(arr[0]);
+	for(int i = 1; i<size; i++){
+	    for(int j = i; j>=1; j--){
+	        if(arr[j-1] > arr[j]){
+	            swap(arr[j-1], arr[j]);
+	        }else{
+	            break;
+	        }
+	    }
+	}
+	for(int i = 0; i<size; i++){
+	    cout<<arr[i]<<" ";
+	}
 }
