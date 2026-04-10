@@ -1,0 +1,55 @@
+Basic Structure
+HTML
+
+<input type="text" id="taskInput" placeholder="Enter task">
+<button onclick="addTask()">Add</button>
+
+<ul id="taskList"></ul>
+-------------------------------------------------------------------------------------------------
+JavaScript Logic
+
+1. Store tasks
+
+let tasks = [];
+--------------------------------------------------------------------------------------------------
+
+2. Add Task
+
+function addTask() {
+  let input = document.getElementById("taskInput");
+  let task = input.value;
+
+  if (task === "") return;
+
+  tasks.push(task);
+  input.value = "";
+
+  renderTasks();
+}
+-------------------------------------------------------------------------------------------------
+
+3. Show Tasks on Screen
+
+function renderTasks() {
+  let list = document.getElementById("taskList");
+  list.innerHTML = "";
+
+  tasks.forEach((task, index) => {
+    let li = document.createElement("li");
+
+    li.innerHTML = `
+      ${task}
+      <button onclick="deleteTask(${index})">X</button>
+    `;
+
+    list.appendChild(li);
+  });
+}
+-------------------------------------------------------------------------------------------------
+
+4. Delete Task
+
+function deleteTask(index) {
+  tasks.splice(index, 1);
+  renderTasks();
+}

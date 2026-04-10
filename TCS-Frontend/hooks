@@ -16,12 +16,40 @@ function Counter() {
 
 useEffect
 👉 Used for side effects (API calls, DOM updates, timers)
+useEffect is commonly used for API calls in React
 
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
-useEffect(() => {
-  console.log("Component mounted");
-}, []);
+function App() {
+  const [fact, setFact] = useState("");
+
+  useEffect(() => {
+    fetch("https://catfact.ninja/fact")
+      .then(res => res.json())
+      .then(data => setFact(data.fact))
+      .catch(err => console.log(err));
+  }, []); // runs only once
+
+  return <h1>{fact}</h1>;
+}
+-----------------------------------------------------------------------------------------------------
+
+// Search
+
+import { useState } from "react";
+
+function Search() {
+  const [query, setQuery] = useState("");
+
+  const handleKeyUp = (e) => {
+    setQuery(e.target.value);
+    console.log("Searching for:", e.target.value);
+  };
+
+  return (
+    <input type="text" placeholder="Search..." onKeyUp={handleKeyUp} />
+  );
+}
 -----------------------------------------------------------------------------------------------------
 
 useContext
